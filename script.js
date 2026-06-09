@@ -379,7 +379,7 @@
     }
 
     function changeVolume(value) {
-  player.volume = Number;
+  player.volume = Number(value);
 }
 
     function stopPropagation(event) {
