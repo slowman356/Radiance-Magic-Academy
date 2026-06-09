@@ -16,31 +16,31 @@
         7: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2F%E8%83%8C%E6%99%AF%E5%8B%95%E7%95%AB%2F%E7%94%9FGIF.gif?alt=media&token=9278cd9e-b4c0-4b77-b3e3-2d947544daea" // 可換圖：種族 7 背景動畫
       },
       raceCharacters: {
-        1: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2F%E7%A8%AE%E6%97%8F%2F%E4%BA%BA%E9%AD%9A.png?alt=media&token=f64c6a68-9729-4d96-80bb-807f4bf7b467", // 可換圖：種族 1 人物圖
-        2: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2F%E7%A8%AE%E6%97%8F%2F%E4%BA%BA.png?alt=media&token=e77130c9-0e92-4a1d-813b-af434d2da1aa", // 可換圖：種族 2 人物圖
-        3: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2F%E7%A8%AE%E6%97%8F%2F%E7%8B%BC%E4%BA%BA.png?alt=media&token=2a7d5803-4627-49da-8943-b48ee34510d7", // 可換圖：種族 3 人物圖
-        4: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2F%E7%A8%AE%E6%97%8F%2F%E5%A6%96%E7%B2%BE01.png?alt=media&token=a8c30dbd-b988-4dd6-a83e-4bed915fa26e", // 可換圖：種族 4 人物圖
-        5: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2F%E7%A8%AE%E6%97%8F%2F%E5%BE%B7%E9%AD%AF.png?alt=media&token=b4297e8d-37ed-4817-b060-9177b2f9baaf", // 可換圖：種族 5 人物圖
-        6: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2F%E7%A8%AE%E6%97%8F%2F%E5%90%B8%E8%A1%80.png?alt=media&token=45600d16-6561-4147-860c-39ff77fb41fa", // 可換圖：種族 6 人物圖
-        7: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2F%E7%A8%AE%E6%97%8F%2F%E7%B2%BE%E9%9D%88.png?alt=media&token=c7c0f277-db19-4d9e-b00e-d0d70c1581b7" // 可換圖：種族 7 人物圖
+        1: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2F%E7%A8%AE%E6%97%8F%2F%E4%BA%BA%E9%AD%9A.png?alt=media&token=f64c6a68-9729-4d96-80bb-807f4bf7b467", 
+        2: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2F%E7%A8%AE%E6%97%8F%2F%E4%BA%BA.png?alt=media&token=e77130c9-0e92-4a1d-813b-af434d2da1aa", 
+        3: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2F%E7%A8%AE%E6%97%8F%2F%E7%8B%BC%E4%BA%BA.png?alt=media&token=2a7d5803-4627-49da-8943-b48ee34510d7", 
+        4: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2F%E7%A8%AE%E6%97%8F%2F%E5%A6%96%E7%B2%BE01.png?alt=media&token=a8c30dbd-b988-4dd6-a83e-4bed915fa26e", 
+        5: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2F%E7%A8%AE%E6%97%8F%2F%E5%BE%B7%E9%AD%AF.png?alt=media&token=b4297e8d-37ed-4817-b060-9177b2f9baaf", 
+        6: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2F%E7%A8%AE%E6%97%8F%2F%E5%90%B8%E8%A1%80.png?alt=media&token=45600d16-6561-4147-860c-39ff77fb41fa", 
+        7: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2F%E7%A8%AE%E6%97%8F%2F%E7%B2%BE%E9%9D%88.png?alt=media&token=c7c0f277-db19-4d9e-b00e-d0d70c1581b7" 
       },
       academyImages: {
-        1: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media", // 可換圖：學院 1 左側圖
-        2: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media", // 可換圖：學院 2 左側圖
-        3: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media", // 可換圖：學院 3 左側圖
-        4: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media" // 可換圖：學院 4 左側圖
+        1: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media",  
+        2: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media",  
+        3: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media",  
+        4: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media"  
       },
       courseImages: {
-        1: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media", // 可換圖：課程 1 左側圖
-        2: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media", // 可換圖：課程 2 左側圖
-        3: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media", // 可換圖：課程 3 左側圖
-        4: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media" // 可換圖：課程 4 左側圖
+        1: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media", 
+        2: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media", 
+        3: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media", 
+        4: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media" /
       },
       facultyImages: {
-        1: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media", // 可換圖：師資 1 左側圖
-        2: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media", // 可換圖：師資 2 左側圖
-        3: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media", // 可換圖：師資 3 左側圖
-        4: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media" // 可換圖：師資 4 左側圖
+        1: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media", 
+        2: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media", 
+        3: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media", 
+        4: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media" 
       },
       monsters: {
         1: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2F%E6%80%AA%E7%89%A9%2F%E6%80%AA%E7%89%A901.png?alt=media&token=0a64065b-5c0a-4f03-b190-cbda116ba80e", // 可換圖：魔物 1 彈窗大圖
