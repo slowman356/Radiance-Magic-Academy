@@ -379,15 +379,15 @@
     }
 
     function changeVolume(value) {
-      player.volume = 0.3(value);
-    }
+  player.volume = value;
+}
 
     function stopPropagation(event) {
       event.stopPropagation();
     }
 
     window.addEventListener("DOMContentLoaded", () => {
-      player.volume = 0.3;
+      player.volume = 0.15;
       applyFirebaseImages();
       [FIREBASE_IMAGES.homeHero, FIREBASE_IMAGES.map, FIREBASE_IMAGES.monsterLogo, fallbackArt].forEach(preloadImage);
       preloadRaceAssets();
