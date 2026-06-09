@@ -1,6 +1,5 @@
-// ================= FIREBASE 換圖設定區 =================
-    // 把下面的 Firebase 連結換掉，就可以替換網站圖片。
-    // 種族介紹已分開：raceBackgrounds 是背景動畫 GIF，raceCharacters 是左側人物圖。
+
+   
     const FIREBASE_IMAGES = {
       homeHero: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2F%E5%9C%B0%E5%9C%96%2F%E4%B8%BB%E9%A0%81.png?alt=media&token=252626a5-b47a-465d-837c-b5bf38adba82", // 可換圖：主頁滿版背景圖
       sharedFallback: "https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media", // 可換圖：共用預設圖
@@ -380,7 +379,7 @@
     }
 
     function changeVolume(value) {
-      player.volume = Number(value);
+      player.volume = 0.3(value);
     }
 
     function stopPropagation(event) {
