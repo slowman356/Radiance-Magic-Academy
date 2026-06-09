@@ -338,20 +338,59 @@
       showCharacterRulePage(characterRulePage + delta);
     }
 
-   const player = document.getElementById("bgm-player");
+  const player = document.getElementById("bgm-player");
 const disc = document.getElementById("music-disc");
 const statusText = document.getElementById("music-status-text");
 const vinylIcon = document.getElementById("music-vinyl-icon");
 
-function changeVolume(value) {
-  if (!player) return;
-  player.volume = Math.min(Math.max(Number(value) / 100, 0), 1);
+function revealEnterAcademyButton() {
+  document.getElementById("academy-loader")?.classList.add("ready");
 }
 
 function setMusicPlayingState(isPlaying) {
   if (disc) disc.classList.toggle("playing", isPlaying);
   if (statusText) statusText.textContent = isPlaying ? "音樂播放中" : "音訊已靜音 / 暫停";
   if (vinylIcon) vinylIcon.className = isPlaying ? "fa-solid fa-compact-disc" : "fa-solid fa-record-vinyl";
+}
+
+function enterAcademy() {
+  const loader = document.getElementById("academy-loader");
+  loader?.classList.add("leaving");
+  window.setTimeout(() => loader?.remove(), 700);
+
+  if (!player) return;
+
+  player.play().then(() => {
+    setMusicPlayingState(true);
+  }).catch(() => {
+    if (statusText) statusText.textContent = "請再次點擊音樂播放器開啟音樂";
+  });
+}
+
+function toggleMusic(event) {
+  event.stopPropagation();
+
+  if (!player) return;
+
+  if (player.paused) {
+    player.play().then(() => {
+      setMusicPlayingState(true);
+    }).catch(() => {
+      if (statusText) statusText.textContent = "請再次點擊音樂播放器開啟音樂";
+    });
+  } else {
+    player.pause();
+    setMusicPlayingState(false);
+  }
+}
+
+function changeVolume(value) {
+  if (!player) return;
+  player.volume = Math.min(Math.max(Number(value) / 100, 0), 1);
+}
+
+function stopPropagation(event) {
+  event.stopPropagation();
 }
 
 window.addEventListener("DOMContentLoaded", () => {
