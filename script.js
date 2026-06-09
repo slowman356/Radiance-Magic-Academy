@@ -342,10 +342,16 @@
     const vinylIcon = document.getElementById("music-vinyl-icon");
 
     function setMusicPlayingState(isPlaying) {
-      disc.classList.toggle("playing", isPlaying);
-      statusText.textContent = isPlaying ? "音樂播放中" : "音訊已靜音 / 暫停";
-      vinylIcon.className = isPlaying ? "fa-solid fa-compact-disc" : "fa-solid fa-record-vinyl";
-    }
+  if (disc) disc.classList.toggle("playing", isPlaying);
+
+  if (statusText) {
+    statusText.textContent = isPlaying ? "音樂播放中" : "音訊已靜音 / 暫停";
+  }
+
+  if (vinylIcon) {
+    vinylIcon.className = isPlaying ? "fa-solid fa-compact-disc" : "fa-solid fa-record-vinyl";
+  }
+}
 
     function revealEnterAcademyButton() {
       document.getElementById("academy-loader")?.classList.add("ready");
