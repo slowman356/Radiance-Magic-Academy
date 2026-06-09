@@ -378,8 +378,8 @@
       }
     }
 
-    function changeVolume(value) {
-  player.volume = Number(value);
+function changeVolume(value) {
+  player.volume = Math.min(Math.max(Number(value) / 100, 0), 1);
 }
 
     function stopPropagation(event) {
@@ -388,14 +388,18 @@
 
     window.addEventListener("DOMContentLoaded", () => {
       player.volume = 0.15;
-      applyFirebaseImages();
-      [FIREBASE_IMAGES.homeHero, FIREBASE_IMAGES.map, FIREBASE_IMAGES.monsterLogo, fallbackArt].forEach(preloadImage);
-      preloadRaceAssets();
-      showCodex("race", 1);
-      showCodex("academy", 1);
-      showCodex("course", 1);
-      showCodex("faculty", 1);
-      showCharacterRulePage(1);
-      document.getElementById("loader-fill")?.addEventListener("animationend", revealEnterAcademyButton, { once: true });
-      window.setTimeout(revealEnterAcademyButton, 3100);
-    });
+       const volumeSlider = document.getElementById("volume-slider");
+  if (volumeSlider) {
+    volumeSlider.value = player.volume * 100;
+  }
+       applyFirebaseImages();
+  [FIREBASE_IMAGES.homeHero, FIREBASE_IMAGES.map, FIREBASE_IMAGES.monsterLogo, fallbackArt].forEach(preloadImage);
+  preloadRaceAssets();
+  showCodex("race", 1);
+  showCodex("academy", 1);
+  showCodex("course", 1);
+  showCodex("faculty", 1);
+  showCharacterRulePage(1);
+  document.getElementById("loader-fill")?.addEventListener("animationend", revealEnterAcademyButton, { once: true });
+  window.setTimeout(revealEnterAcademyButton, 3100);
+});
