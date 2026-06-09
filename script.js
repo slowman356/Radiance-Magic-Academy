@@ -338,61 +338,33 @@
       showCharacterRulePage(characterRulePage + delta);
     }
 
-    const player = document.getElementById("bgm-player");
-    const disc = document.getElementById("music-disc");
-    const statusText = document.getElementById("music-status-text");
-    const vinylIcon = document.getElementById("music-vinyl-icon");
-
-    function setMusicPlayingState(isPlaying) {
-      disc.classList.toggle("playing", isPlaying);
-      statusText.textContent = isPlaying ? "音樂播放中" : "音訊已靜音 / 暫停";
-      vinylIcon.className = isPlaying ? "fa-solid fa-compact-disc" : "fa-solid fa-record-vinyl";
-    }
-
-    function revealEnterAcademyButton() {
-      document.getElementById("academy-loader")?.classList.add("ready");
-    }
-
-    function enterAcademy() {
-      const loader = document.getElementById("academy-loader");
-      loader?.classList.add("leaving");
-      window.setTimeout(() => loader?.remove(), 700);
-      player.play().then(() => {
-        setMusicPlayingState(true);
-      }).catch(() => {
-        statusText.textContent = "瀏覽器阻擋自動播放，請再點一次";
-      });
-    }
-
-    function toggleMusic(event) {
-      event.stopPropagation();
-      if (player.paused) {
-        player.play().then(() => {
-          setMusicPlayingState(true);
-        }).catch(() => {
-          statusText.textContent = "瀏覽器阻擋自動播放，請再點一次";
-        });
-      } else {
-        player.pause();
-        setMusicPlayingState(false);
-      }
-    }
+   const player = document.getElementById("bgm-player");
+const disc = document.getElementById("music-disc");
+const statusText = document.getElementById("music-status-text");
+const vinylIcon = document.getElementById("music-vinyl-icon");
 
 function changeVolume(value) {
+  if (!player) return;
   player.volume = Math.min(Math.max(Number(value) / 100, 0), 1);
 }
 
-    function stopPropagation(event) {
-      event.stopPropagation();
-    }
+function setMusicPlayingState(isPlaying) {
+  if (disc) disc.classList.toggle("playing", isPlaying);
+  if (statusText) statusText.textContent = isPlaying ? "音樂播放中" : "音訊已靜音 / 暫停";
+  if (vinylIcon) vinylIcon.className = isPlaying ? "fa-solid fa-compact-disc" : "fa-solid fa-record-vinyl";
+}
 
-    window.addEventListener("DOMContentLoaded", () => {
-      player.volume = 0.15;
-       const volumeSlider = document.getElementById("volume-slider");
-  if (volumeSlider) {
-    volumeSlider.value = player.volume * 100;
+window.addEventListener("DOMContentLoaded", () => {
+  if (player) {
+    player.volume = 0.15;
   }
-       applyFirebaseImages();
+
+  const volumeSlider = document.getElementById("volume-slider");
+  if (volumeSlider) {
+    volumeSlider.value = 15;
+  }
+
+  applyFirebaseImages();
   [FIREBASE_IMAGES.homeHero, FIREBASE_IMAGES.map, FIREBASE_IMAGES.monsterLogo, fallbackArt].forEach(preloadImage);
   preloadRaceAssets();
   showCodex("race", 1);
@@ -400,6 +372,7 @@ function changeVolume(value) {
   showCodex("course", 1);
   showCodex("faculty", 1);
   showCharacterRulePage(1);
+
   document.getElementById("loader-fill")?.addEventListener("animationend", revealEnterAcademyButton, { once: true });
   window.setTimeout(revealEnterAcademyButton, 3100);
 });
