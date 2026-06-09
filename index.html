@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>光輝之都| 魔法學院</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://firebasestorage.googleapis.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Noto+Serif+TC:wght@400;600;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <audio id="bgm-player" loop>
+    <source src="https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2FMagical%20Fantasy%20-%20Extended%20version%20.mp3?alt=media&token=5b592837-7e2b-41b9-9689-44cac3bdca3c" type="audio/mpeg">
+  </audio>
+
+  <div class="academy-loader" id="academy-loader">
+    <div class="loader-inner">
+      <div class="loader-title">光輝之都</div>
+      <div class="loader-bar"><span class="loader-fill" id="loader-fill"></span></div>
+      <button class="enter-academy-btn" type="button" onclick="enterAcademy()">進入學院</button>
+    </div>
+  </div>
+
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo" onclick="switchPage('home'); return false;">
+        <i class="fa-solid fa-wand-sparkles"></i>
+        光輝之都
+      </a>
+      <button class="hamburger" onclick="toggleMobileMenu()" aria-label="開啟選單">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <ul class="nav-menu" id="nav-menu">
+        <li class="nav-item active" id="nav-home"><span class="nav-link" onclick="switchPage('home')">首頁</span></li>
+        <li class="nav-item" id="nav-worldview">
+          <span class="nav-link">世界觀 <i class="fa-solid fa-chevron-down" style="font-size:.8rem"></i></span>
+          <div class="dropdown">
+            <a href="#" class="dropdown-item" onclick="switchPage('story'); return false;">世界故事</a>
+            <a href="#" class="dropdown-item" onclick="switchPage('map'); return false;">地圖區域</a>
+            <a href="#" class="dropdown-item" onclick="switchPage('monsters'); return false;">魔物圖鑑</a>
+          </div>
+        </li>
+        <li class="nav-item" id="nav-races"><span class="nav-link" onclick="switchPage('races')">種族介紹</span></li>
+        <li class="nav-item" id="nav-academies">
+          <span class="nav-link" onclick="switchPage('academies')">學院 <i class="fa-solid fa-chevron-down" style="font-size:.8rem"></i></span>
+          <div class="dropdown">
+            <a href="#" class="dropdown-item" onclick="switchPage('academies'); return false;">學院</a>
+            <a href="#" class="dropdown-item" onclick="switchPage('courses'); return false;">課程</a>
+            <a href="#" class="dropdown-item" onclick="switchPage('faculty'); return false;">師資</a>
+          </div>
+        </li>
+        <li class="nav-item" id="nav-norms"><span class="nav-link" onclick="switchPage('norms')">伺服器規章</span></li>
+      </ul>
+    </div>
+  </header>
+
+  <div id="home-page" class="page-content active">
+    <section id="home">
+      <div class="hero-banner"><img id="home-hero-img" src="https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2F%E5%9C%B0%E5%9C%96%2F%E4%B8%BB%E9%A0%81.png?alt=media&token=252626a5-b47a-465d-837c-b5bf38adba82" alt="光輝魔法學院主視覺" decoding="async" fetchpriority="high" loading="eager"></div>
+      <div class="hero-content">
+        <h1>光輝魔法學院</h1>
+        <p>在白金聖城之中，魔法、契約與命運交織。選擇你的典籍，翻開屬於你的奇幻旅程。</p>
+        <a class="btn-magic" href="https://discord.gg/zNmG6DPNe" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> 申請入學</a>
+      </div>
+    </section>
+  </div>
+
+  <div id="story-page" class="page-content">
+    <section class="worldview-section">
+      <div class="section-header">
+        <h2>世界故事</h2>
+        <p>白金高塔之下，所有角色都被命運與魔法召喚至同一座聖城。</p>
+      </div>
+      <div class="story-container">
+        <div class="story-text">
+          <p>範例。</p>
+          <p>範例</p>
+          <p>這裡重視沉浸式 RP、角色動機與合理後果。魔法可以帶來奇蹟，也可能讓人付出代價。</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="map-page" class="page-content">
+    <section class="worldview-section">
+      <div class="section-header">
+        <h2>地圖區域</h2>
+        <p>探索聖城、學院、森林、廢墟與被封印的魔法裂隙。</p>
+      </div>
+      <div class="map-container">
+        <div class="map-visual interactive-map">
+          <img id="map-main-img" src="https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2F%E5%9C%B0%E5%9C%96%2F%E5%9C%B0%E5%9C%96.jpg?alt=media&token=19c15693-7cb6-4d92-a556-cb4a8536c503" alt="光輝之都世界地圖" decoding="async" loading="lazy">
+          <button class="map-hotspot map-zone-qilia" type="button" onclick="showMapRegion('qilia')" aria-label="查看齊里亞介紹"><span>齊里亞</span></button>
+          <button class="map-hotspot map-zone-senla" type="button" onclick="showMapRegion('senla')" aria-label="查看森拉伍德介紹"><span>森拉伍德</span></button>
+          <button class="map-hotspot map-zone-nuvilia" type="button" onclick="showMapRegion('nuvilia')" aria-label="查看努維利亞介紹"><span>努維利亞</span></button>
+          <button class="map-hotspot map-zone-alsamar" type="button" onclick="showMapRegion('alsamar')" aria-label="查看阿爾薩馬爾介紹"><span>阿爾薩馬爾</span></button>
+        </div>
+        <p class="map-hint">將滑鼠移到發光地區，點擊即可查看地區介紹</p>
+      </div>
+    </section>
+  </div>
+
+  <div id="monsters-page" class="page-content">
+    <section class="worldview-section">
+      <div class="section-header">
+        <h2>魔物圖鑑</h2>
+        <p>裂隙中的存在並非全是野獸，有些甚至擁有古老智慧。</p>
+      </div>
+      <div class="monster-grid">
+        <article class="monster-card" onclick="showMonsterDetails(1)" tabindex="0" role="button" onkeydown="handleMonsterKey(event, 1)">
+          <div class="monster-img"><img data-monster-card-img="1" src="https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2F%E6%80%AA%E7%89%A9%2F%E6%80%AA%E7%89%A9LOGO.png?alt=media&token=64fdb2fa-a66f-43b3-aebf-77cfc8985b87" alt="虛空元素" decoding="async" loading="lazy"></div>
+          <div class="monster-info"><span>危險度：S</span><h3>怪物01</h3><p>範例。</p></div>
+        </article>
+        <article class="monster-card" onclick="showMonsterDetails(2)" tabindex="0" role="button" onkeydown="handleMonsterKey(event, 2)">
+          <div class="monster-img"><img data-monster-card-img="2" src="https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2F%E6%80%AA%E7%89%A9%2F%E6%80%AA%E7%89%A9LOGO.png?alt=media&token=64fdb2fa-a66f-43b3-aebf-77cfc8985b87" alt="遺跡魔像" decoding="async" loading="lazy"></div>
+          <div class="monster-info"><span>危險度：A</span><h3>怪物02</h3><p>範例</p></div>
+        </article>
+        <article class="monster-card" onclick="showMonsterDetails(3)" tabindex="0" role="button" onkeydown="handleMonsterKey(event, 3)">
+          <div class="monster-img"><img data-monster-card-img="3" src="https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2F%E6%80%AA%E7%89%A9%2F%E6%80%AA%E7%89%A9LOGO.png?alt=media&token=64fdb2fa-a66f-43b3-aebf-77cfc8985b87" alt="影行者" decoding="async" loading="lazy"></div>
+          <div class="monster-info"><span>危險度：B</span><h3>怪物03</h3><p>範例。</p></div>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <div id="races-page" class="page-content codex-page">
+    <section class="codex-shell">
+      <div class="codex-art" id="race-art"><img id="race-img" src="https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2F%E7%A8%AE%E6%97%8F%2F%E4%BA%BA%E9%AD%9A.png?alt=media&token=f64c6a68-9729-4d96-80bb-807f4bf7b467" alt="種族典籍圖像" decoding="async" fetchpriority="high" loading="eager"></div>
+      <div class="codex-center" id="race-text">
+        <div class="codex-subtitle" id="race-subtitle"></div>
+        <h2 class="codex-title" id="race-title"></h2>
+        <div class="codex-copy" id="race-copy"></div>
+        <div class="codex-footer" id="race-footer"></div>
+      </div>
+      <aside class="codex-menu" aria-label="種族典籍選單">
+        <button class="race-menu active" data-id="1" onclick="showCodex('race', 1)"><span>人魚族</span><i class="dot"></i></button>
+        <button class="race-menu" data-id="2" onclick="showCodex('race', 2)"><span>人族</span><i class="dot"></i></button>
+        <button class="race-menu" data-id="3" onclick="showCodex('race', 3)"><span>狼族</span><i class="dot"></i></button>
+        <button class="race-menu" data-id="4" onclick="showCodex('race', 4)"><span>妖精</span><i class="dot"></i></button>
+        <button class="race-menu" data-id="5" onclick="showCodex('race', 5)"><span>德魯伊</span><i class="dot"></i></button>
+        <button class="race-menu" data-id="6" onclick="showCodex('race', 6)"><span>吸血族 </span><i class="dot"></i></button>
+        <button class="race-menu" data-id="7" onclick="showCodex('race', 7)"><span>精靈</span><i class="dot"></i></button>
+      </aside>
+    </section>
+  </div>
+
+  <div id="academies-page" class="page-content codex-page light-codex">
+    <section class="codex-shell">
+      <div class="codex-art" id="academy-art"><img id="academy-img" src="https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media" alt="學院典籍圖像" decoding="async" loading="lazy"></div>
+      <div class="codex-center" id="academy-text">
+        <div class="codex-subtitle" id="academy-subtitle"></div>
+        <h2 class="codex-title" id="academy-title"></h2>
+        <div class="codex-copy" id="academy-copy"></div>
+        <div class="codex-footer" id="academy-footer"></div>
+      </div>
+      <aside class="codex-menu" aria-label="學院選單">
+        <button class="academy-menu active" data-id="1" onclick="showCodex('academy', 1)"><span>葛萊芬多</span><i class="dot"></i></button>
+        <button class="academy-menu" data-id="2" onclick="showCodex('academy', 2)"><span>赫夫帕夫</span><i class="dot"></i></button>
+        <button class="academy-menu" data-id="3" onclick="showCodex('academy', 3)"><span>史萊哲林</span><i class="dot"></i></button>
+        <button class="academy-menu" data-id="4" onclick="showCodex('academy', 4)"><span>雷文克勞</span><i class="dot"></i></button>
+      </aside>
+    </section>
+  </div>
+
+  <div id="courses-page" class="page-content codex-page light-codex">
+    <section class="codex-shell">
+      <div class="codex-art" id="course-art"><img id="course-img" src="https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media" alt="課程典籍圖像" decoding="async" loading="lazy"></div>
+      <div class="codex-center" id="course-text">
+        <div class="codex-subtitle" id="course-subtitle"></div>
+        <h2 class="codex-title" id="course-title"></h2>
+        <div class="codex-copy" id="course-copy"></div>
+        <div class="codex-footer" id="course-footer"></div>
+      </div>
+      <aside class="codex-menu" aria-label="課程選單">
+        <button class="course-menu active" data-id="1" onclick="showCodex('course', 1)"><span>符文基礎</span><i class="dot"></i></button>
+        <button class="course-menu" data-id="2" onclick="showCodex('course', 2)"><span>結界防護</span><i class="dot"></i></button>
+        <button class="course-menu" data-id="3" onclick="showCodex('course', 3)"><span>元素實作</span><i class="dot"></i></button>
+        <button class="course-menu" data-id="4" onclick="showCodex('course', 4)"><span>魔物研究</span><i class="dot"></i></button>
+      </aside>
+    </section>
+  </div>
+
+  <div id="faculty-page" class="page-content codex-page light-codex">
+    <section class="codex-shell">
+      <div class="codex-art" id="faculty-art"><img id="faculty-img" src="https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media" alt="師資典籍圖像" decoding="async" loading="lazy"></div>
+      <div class="codex-center" id="faculty-text">
+        <div class="codex-subtitle" id="faculty-subtitle"></div>
+        <h2 class="codex-title" id="faculty-title"></h2>
+        <div class="codex-copy" id="faculty-copy"></div>
+        <div class="codex-footer" id="faculty-footer"></div>
+      </div>
+      <aside class="codex-menu" aria-label="師資選單">
+        <button class="faculty-menu active" data-id="1" onclick="showCodex('faculty', 1)"><span>院長</span><i class="dot"></i></button>
+        <button class="faculty-menu" data-id="2" onclick="showCodex('faculty', 2)"><span>老師1</span><i class="dot"></i></button>
+        <button class="faculty-menu" data-id="3" onclick="showCodex('faculty', 3)"><span>老師2</span><i class="dot"></i></button>
+        <button class="faculty-menu" data-id="4" onclick="showCodex('faculty', 4)"><span>老師3</span><i class="dot"></i></button>
+      </aside>
+    </section>
+  </div>
+
+  <div id="norms-page" class="page-content">
+    <section class="worldview-section">
+      <div class="section-header">
+        <h2>伺服器規章</h2>
+        <p></p>
+      </div>
+    </section>
+    <div class="norms-layout">
+      <ul class="norms-sidebar">
+        <li class="norms-menu-item active" onclick="showNormTab(1)"><span>基本規章</span><small>GENERAL RULES</small></li>
+        <li class="norms-menu-item" onclick="showNormTab(2)"><span>魔法規章</span><small>ARCANE LAWS</small></li>
+        <li class="norms-menu-item" onclick="showNormTab(3)"><span>角色規範</span><small>CHARACTER CODE</small></li>
+        <li class="norms-menu-item" onclick="showNormTab(4)"><span>戰鬥規範</span><small>COMBAT CODE</small></li>
+      </ul>
+      <div class="norms-content-panel">
+        <div class="norm-tab-content active" id="norm-tab-1">
+          <div class="norms-kicker"></div>
+          <h3>基本規章</h3>
+          <div class="norm-rule-card">
+            <strong>基礎 RP 規則</strong>
+            <ul>
+              <li><mark>無劇情殺人 RDM（Random Death Match）：</mark>禁止無合理劇情，對其他玩家造成傷害或擊殺。</li>
+              <li><mark>無劇情車殺 VDM（Vehicle Death Martch）：</mark>禁止無合理劇情使用任意載具故意撞傷玩家。</li>
+              <li><mark>混淆扮演 Metagaming：</mark>禁止在任何直播及 OOC 平台等，得知資訊後帶入到 IC 內。</li>
+              <li>禁止角色之間恩怨帶出到戲外，戲外恩怨帶入到角色。</li>
+              <li><mark>超人扮演 Powergaming / Fail RP：</mark>禁止做出與世界觀或現實中不合理、無法反抗的行為。</li>
+              <li>禁止濫用遊戲機制、談論不符合世界觀的話題、使用外掛。</li>
+              <li>例如：你現實做甚麼工作、感覺你跟我夢裡的某些人好像。</li>
+              <li><mark>恐懼扮演 Fear RP / 尊重生命 VOL（Value of Life）：</mark>玩家應對任何對自身生命造成危險的狀況做出合理反應。</li>
+              <li>請珍惜角色生命，禁止想嘗試魔法效果從而故意施法到他人身上。</li>
+              <li><mark>惡意離線 Combat Logging：</mark>禁止在任何劇情中，因不想扮演或任何因素而直接離線逃避。</li>
+            </ul>
+            <p>請勿以「規則沒寫」作為合理化依據，規則旨在提供基本準則，而非列舉所有可能情況。</p>
+            <p>凡有違伺服器世界觀、RP 公平性及合理邏輯之行為，管理團隊有權依實際情況進行判定與處置。</p>
+          </div>
+        </div>
+        <div class="norm-tab-content" id="norm-tab-2">
+          <div class="norms-kicker"></div>
+          <h3>魔法規章</h3>
+          <div class="norm-rule-card">
+            <strong>施法限制</strong>
+            <p>魔法需要符合角色設定、劇情條件與合理代價，避免破壞互動平衡。</p>
+            <ul>
+              <li>高階魔法需符合角色設定與劇情條件。</li>
+              <li>禁止無代價、無限制、無反制的絕對能力。</li>
+            </ul>
+          </div>
+        </div>
+        <div class="norm-tab-content" id="norm-tab-3">
+          <div class="norms-kicker"></div>
+          <h3>角色規範</h3>
+          <div class="norm-rule-card character-rules">
+            <div class="character-rule-pages">
+              <section class="character-rule-page active" data-character-page="1">
+                <h4 class="character-page-title">I. 人魚族</h4>
+                <div class="character-rule-section">
+                  <h4>I. 身份與理念</h4>
+                  <p>人魚族與潮汐、歌聲、海洋契約有深層連結，角色行為需保留優雅、秩序與族群榮耀。</p>
+                  <ul>
+                    <li><mark>血脈定位：</mark>可來自海底王庭、岸邊部族或混血支脈。</li>
+                    <li>行為需維持正式禮節，避免過度衝動與無理由挑釁。</li>
+                    <li>與水、月潮、治癒、幻歌相關能力需有明確限制。</li>
+                  </ul>
+                </div>
+                <div class="character-rule-section">
+                  <h4>II. 魔法成長體系</h4>
+                  <ul>
+                    <li><mark>初始限制：</mark>不得直接控制大型海域或強迫他人意志。</li>
+                    <li><mark>潮汐代價：</mark>離水太久會降低魔法穩定度。</li>
+                    <li><mark>幻歌使用：</mark>需給對方反應空間，不可直接判定成功。</li>
+                  </ul>
+                </div>
+                <div class="character-rule-section">
+                  <h4>III. 階級制度與權威</h4>
+                  <div class="character-rule-grid">
+                    <div class="character-mini-card"><strong>族長</strong><p>守護海域與族群誓約，對年輕族人具有指導權。</p></div>
+                    <div class="character-mini-card"><strong>古老血脈</strong><p>古老血脈重視禮節、傳承與水域秩序。</p></div>
+                  </div>
+                </div>
+                <div class="character-warning">
+                  <strong>IV. 禁忌行為與流放</strong>
+                  <p>背棄潮汐契約、濫用魅惑歌聲或操控他人行動，將被視為嚴重違規。</p>
+                  <ul>
+                    <li>禁止以幻歌直接操控玩家角色結果。</li>
+                    <li>禁止宣稱能無限制治癒、復活或支配海域。</li>
+                    <li>違反族群誓約可被設定為放逐、禁歌或失去潮汐祝福。</li>
+                  </ul>
+                </div>
+                <div class="character-rule-section">
+                  <h4>V. 角色扮演規範</h4>
+                  <ul>
+                    <li>建議描述水氣、聲線、鱗光與對陸地環境的不適應。</li>
+                    <li>角色強項應搭配明確弱點，例如乾燥、噪音、遠離水源。</li>
+                  </ul>
+                </div>
+              </section>
+
+              <section class="character-rule-page" data-character-page="2">
+                <h4 class="character-page-title">II. 人族</h4>
+                <div class="character-rule-section">
+                  <h4>I. 身份與理念</h4>
+                  <p>人族以適應力、社會關係與學習速度見長，角色核心應放在選擇、野心與成長。</p>
+                  <ul>
+                    <li><mark>身份彈性：</mark>可為學生、商人、巡守、研究者或冒險者。</li>
+                    <li>不得以「天選之人」作為無限制能力來源。</li>
+                    <li>人族優勢來自訓練、資源、智慧與人脈，而非天生壓制。</li>
+                  </ul>
+                </div>
+                <div class="character-rule-section">
+                  <h4>II. 魔法成長體系</h4>
+                  <ul>
+                    <li><mark>學習曲線：</mark>能力需透過課程、任務或劇情逐步提升。</li>
+                    <li><mark>專長限制：</mark>請選擇主要魔法方向，避免全能型設定。</li>
+                    <li><mark>道具依賴：</mark>強大道具需有來源、損耗與使用條件。</li>
+                  </ul>
+                </div>
+                <div class="character-rule-section">
+                  <h4>III. 階級制度與權威</h4>
+                <div class="character-rule-grid">
+                    <div class="character-mini-card"><strong>學院</strong><p>學院制度與師長評價會影響角色資源與信任。</p></div>
+                    <div class="character-mini-card"><strong>家族</strong><p>商會、家族與組織背景需符合城市秩序。</p></div>
+                  </div>
+                </div>
+                <div class="character-warning">
+                  <strong>IV. 禁忌行為與流放</strong>
+                  <p>禁止宣稱角色天然擁有無法解釋的主角特權，或以背景強行壓迫其他角色。</p>
+                  <ul>
+                    <li>不得自稱掌控官方勢力、軍隊或整個家族資源。</li>
+                    <li>不得以 OOC 資訊讓角色預知事件。</li>
+                    <li>重大身份需先經管理審核。</li>
+                  </ul>
+                </div>
+                <div class="character-rule-section">
+                  <h4>V. 角色扮演規範</h4>
+                  <ul>
+                    <li>人族角色需明確呈現目標、恐懼、缺陷與成長方向。</li>
+                    <li>請以互動與選擇推動角色價值，而非靠設定壓制他人。</li>
+                  </ul>
+                </div>
+              </section>
+
+              <section class="character-rule-page" data-character-page="3">
+                <h4 class="character-page-title">III. 狼人族</h4>
+                <div class="character-rule-section">
+                  <h4>I. 身份與理念</h4>
+                  <p>狼族角色重視本能、誓約、族群與自制。力量應與情緒、月相和責任形成張力。</p>
+                  <ul>
+                    <li><mark>族群規範：</mark>可設定部族、孤狼或學院監管身份。</li>
+                    <li>變身與野性不可成為無責任攻擊的藉口。</li>
+                    <li>感官敏銳需合理描述，不能等同讀心或全知。</li>
+                  </ul>
+                </div>
+                <div class="character-rule-section">
+                  <h4>II. 魔法成長體系</h4>
+                  <ul>
+                    <li><mark>月相影響：</mark>滿月可增幅力量，也會提高失控風險。</li>
+                    <li><mark>恢復力：</mark>可快速癒合輕傷，但重傷仍需代價與時間。</li>
+                    <li><mark>追蹤能力：</mark>需有氣味、痕跡或場景線索。</li>
+                  </ul>
+                </div>
+                <div class="character-rule-section">
+                  <h4>III. 階級制度與權威</h4>
+                  <div class="character-rule-grid">
+                    <div class="character-mini-card"><strong>領頭狼</strong><p>負責維持族群秩序與約束危險行為。</p></div>
+                    <div class="character-mini-card"><strong>古老血脈</strong><p>月之誓約可成為角色力量來源與限制。</p></div>
+                  </div>
+                </div>
+                <div class="character-warning">
+                  <strong>IV. 禁忌行為與流放</strong>
+                  <p>失控攻擊、強制感染、無限制追蹤與無視傷害都會破壞互動平衡。</p>
+                  <ul>
+                    <li>禁止未經同意咬傷、轉化或永久標記其他角色。</li>
+                    <li>禁止以獸性為由拒絕承擔後果。</li>
+                    <li>嚴重違規可被族群放逐或受學院監管。</li>
+                  </ul>
+                </div>
+                <div class="character-rule-section">
+                  <h4>V. 角色扮演規範</h4>
+                  <ul>
+                    <li>請描述氣味、聲音、肌肉反應與壓抑本能的細節。</li>
+                    <li>狼族角色應在力量與自制之間保持平衡。</li>
+                  </ul>
+                </div>
+              </section>
+
+              <section class="character-rule-page" data-character-page="4">
+                <h4 class="character-page-title">IV. 妖精</h4>
+                <div class="character-rule-section">
+                  <h4>I. 身份與理念</h4>
+                  <p>妖精與光、生命、祝福和契約密切相關，角色應帶有靈巧、好奇與自然秩序感。</p>
+                  <ul>
+                    <li><mark>祝福限制：</mark>幸運與治癒效果需小範圍、短時間、可反制。</li>
+                    <li>不得以可愛或無害外表逃避角色責任。</li>
+                    <li>與自然、花粉、光塵、微型結界相關能力需明確描述。</li>
+                  </ul>
+                </div>
+                <div class="character-rule-section">
+                  <h4>II. 魔法成長體系</h4>
+                  <ul>
+                    <li><mark>光塵消耗：</mark>連續使用祝福會消耗體力與魔力穩定。</li>
+                    <li><mark>結界學習：</mark>防護與淨化需透過儀式或練習提升。</li>
+                    <li><mark>契約約束：</mark>承諾與交換對妖精具有特別重量。</li>
+                  </ul>
+                </div>
+                <div class="character-rule-section">
+                  <h4>III. 階級制度與權威</h4>
+                  <div class="character-rule-grid">
+                    <div class="character-mini-card"><strong>族長</strong><p>光庭重視禮節、祝福分配與自然平衡。</p></div>
+                    <div class="character-mini-card"><strong>古老血脈</strong><p>母樹與古老花園常是妖精記憶與誓約來源。</p></div>
+                  </div>
+                </div>
+                <div class="character-warning">
+                  <strong>IV. 禁忌行為與流放</strong>
+                  <p>禁止濫用祝福、強制契約、無代價治癒或使他人永久受妖精魔法控制。</p>
+                  <ul>
+                    <li>妖精惡作劇不可造成玩家不可逆損失。</li>
+                    <li>禁止宣稱能永久改寫命運或生命狀態。</li>
+                    <li>破壞自然誓約可能導致失去祝福或被逐出光庭。</li>
+                  </ul>
+                </div>
+                <div class="character-rule-section">
+                  <h4>V. 角色扮演規範</h4>
+                  <ul>
+                    <li>建議使用光塵、翅膀、植物感知與小型儀式描寫。</li>
+                    <li>妖精角色需在善意、淘氣與契約後果間保持平衡。</li>
+                  </ul>
+                </div>
+              </section>
+
+              <section class="character-rule-page" data-character-page="5">
+                <h4 class="character-page-title">V. 德魯伊</h4>
+                <div class="character-rule-section">
+                  <h4>I. 身份與理念</h4>
+                  <p>德魯伊是自然、獸靈與大地循環的守護者，角色需尊重平衡與環境代價。</p>
+                  <ul>
+                    <li><mark>自然誓言：</mark>行動需考量生命循環，不可無故破壞自然。</li>
+                    <li>獸靈感知需依場景線索，不等同全知。</li>
+                    <li>變形、治療、植物操控需有清楚限制。</li>
+                  </ul>
+                </div>
+                <div class="character-rule-section">
+                  <h4>II. 魔法成長體系</h4>
+                  <ul>
+                    <li><mark>獸靈契合：</mark>每名德魯伊應選擇主要獸靈或自然領域。</li>
+                    <li><mark>環境條件：</mark>荒漠、污染地或城市中心會影響施法。</li>
+                    <li><mark>治療代價：</mark>治癒重傷需材料、時間或生命能量交換。</li>
+                  </ul>
+                </div>
+                <div class="character-rule-section">
+                  <h4>III. 階級制度與權威</h4>
+                <div class="character-rule-grid">
+                    <div class="character-mini-card"><strong>長老</strong><p>長老與守林者負責判斷自然誓言是否被違背。</p></div>
+                    <div class="character-mini-card"><strong>古老血脈</strong><p>獸靈提供指引，但不會直接替角色解決所有問題。</p></div>
+                  </div>
+                </div>
+                <div class="character-warning">
+                  <strong>IV. 禁忌行為與流放</strong>
+                  <p>禁止宣稱能任意控制森林、召喚無限獸群或無代價復甦生命。</p>
+                  <ul>
+                    <li>不得使用植物或獸群強制封鎖其他玩家全部行動。</li>
+                    <li>不得把獸靈設定成不可違抗的絕對權威。</li>
+                    <li>破壞自然誓言可能被逐出圓環。</li>
+                  </ul>
+                </div>
+                <div class="character-rule-section">
+                  <h4>V. 角色扮演規範</h4>
+                  <ul>
+                    <li>建議描寫土壤、氣味、樹皮、獸靈低語與環境回饋。</li>
+                    <li>德魯伊角色需在保護自然與城市生活間呈現衝突。</li>
+                  </ul>
+                </div>
+              </section>
+
+              <section class="character-rule-page" data-character-page="6">
+                <h4 class="character-page-title">VI. 吸血族</h4>
+                <div class="character-rule-section">
+                  <h4>I. 身份與理念</h4>
+                  <p>吸血族以血契、優雅、渴望與社會偽裝為核心，角色需承擔誘惑與限制。</p>
+                  <ul>
+                    <li><mark>血契身份：</mark>需設定血脈來源、家族規矩或轉化代價。</li>
+                    <li>魅惑能力不可直接判定其他玩家服從。</li>
+                    <li>日光、飢渴、銀器或聖光等弱點需至少保留一項。</li>
+                  </ul>
+                </div>
+                <div class="character-rule-section">
+                  <h4>II. 魔法成長體系</h4>
+                  <ul>
+                    <li><mark>血魔法：</mark>施法需消耗血液、體力或引發飢渴。</li>
+                    <li><mark>速度與魅惑：</mark>可作敘事優勢，但需保留反制與失敗可能。</li>
+                    <li><mark>古老記憶：</mark>不能用作全知或預知劇情。</li>
+                  </ul>
+                </div>
+                <div class="character-rule-section">
+                  <h4>III. 階級制度與權威</h4>
+                  <div class="character-rule-grid">
+                    <div class="character-mini-card"><strong>族找</strong><p>血族家系重視禮節、契約與保密。</p></div>
+                    <div class="character-mini-card"><strong>古老血脈</strong><p>夜間協定限制吸血行為與暴露風險。</p></div>
+                  </div>
+                </div>
+                <div class="character-warning">
+                  <strong>IV. 禁忌行為與流放</strong>
+                  <p>未經同意吸血、轉化、魅惑或永久支配他人，均屬嚴重違規。</p>
+                  <ul>
+                    <li>禁止宣稱對方角色已被咬傷、成癮或控制。</li>
+                    <li>禁止無視陽光、飢渴與血魔法代價。</li>
+                    <li>破壞夜間協定可能被逐出血族社交圈。</li>
+                  </ul>
+                </div>
+                <div class="character-rule-section">
+                  <h4>V. 角色扮演規範</h4>
+                  <ul>
+                    <li>建議描寫禮節、飢渴、微笑背後的壓抑與血契負擔。</li>
+                    <li>吸血族角色應在優雅與危險之間保持可互動性。</li>
+                  </ul>
+                </div>
+              </section>
+
+              <section class="character-rule-page" data-character-page="7">
+                <h4 class="character-page-title">VII. 精靈族</h4>
+                <div class="character-rule-section">
+                  <h4>I. 身份與理念</h4>
+                  <p>精靈族與符文、元素、長壽記憶有深層連結，角色應呈現穩重、優雅與古老責任。</p>
+                  <ul>
+                    <li><mark>尊重傳承：</mark>絕對尊重祖先、長者與古老典籍。</li>
+                    <li>與自然和元素能量有精神連結，但不可無限制支配。</li>
+                    <li>行為需正式、克制，避免過度人族式衝動。</li>
+                  </ul>
+                </div>
+                <div class="character-rule-section">
+                  <h4>II. 魔法成長體系</h4>
+                  <ul>
+                    <li><mark>初始禁令：</mark>年輕精靈不得擁有絕對元素控制。</li>
+                    <li><mark>複雜符文：</mark>需要文獻、訓練與長時間敘事累積。</li>
+                    <li><mark>魔力疲勞：</mark>過度施法需承擔身體或精神代價。</li>
+                  </ul>
+                </div>
+                <div class="character-rule-section">
+                  <h4>III. 階級制度與權威</h4>
+                  <div class="character-rule-grid">
+                    <div class="character-mini-card"><strong>族長</strong><p>擁有教義與知識權威，質疑他們需要付出禮節代價。</p></div>
+                    <div class="character-mini-card"><strong>古老血脈</strong><p>古老家系在精靈社會與學院決策中具有重量。</p></div>
+                  </div>
+                </div>
+                <div class="character-warning">
+                  <strong>IV. 禁忌行為與流放</strong>
+                  <p>"El peor destino para un elfo no es la muerte, sino ser arrancado de la luz del Árbol Madre."</p>
+                  <ul>
+                    <li>使用黑暗符文或腐化魔法會受到嚴格審核。</li>
+                    <li>背叛族群、洩漏聖典或濫用古代魔法可能導致放逐。</li>
+                    <li>回歸族群需經歷漫長贖罪與考驗。</li>
+                  </ul>
+                </div>
+                <div class="character-rule-section">
+                  <h4>V. 角色扮演規範</h4>
+                  <ul>
+                    <li>建議使用正式語氣、精緻禮節與符文儀式描寫。</li>
+                    <li>長壽不是全知，角色仍需要學習與承擔錯誤。</li>
+                    <li>嚴格遵守此 Lore，違反者可能受到行政或劇情制裁。</li>
+                  </ul>
+                </div>
+              </section>
+            </div>
+            <div class="character-rule-nav">
+              <button type="button" id="character-rule-prev" onclick="changeCharacterRulePage(-1)">← 上一頁</button>
+              <span id="character-rule-indicator">第 1 / 7 頁</span>
+              <button type="button" id="character-rule-next" onclick="changeCharacterRulePage(1)">下一頁 →</button>
+            </div>
+          </div>
+        </div>
+        <div class="norm-tab-content" id="norm-tab-4">
+          <div class="norms-kicker"></div>
+          <h3>戰鬥規範</h3>
+          <div class="norm-rule-card">
+            <strong>互動戰鬥</strong>
+            <p>戰鬥以敘事互動為主，需保留對方反應與合理判定空間。</p>
+            <ul>
+              <li>戰鬥以互動敘事為主，避免單方面判定對方結果。</li>
+              <li>衝突場景需保留對方反應空間。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="music-widget" onclick="toggleMusic(event)">
+    <div class="music-disc" id="music-disc"><i id="music-vinyl-icon" class="fa-solid fa-record-vinyl"></i></div>
+    <div class="music-info">
+      <div class="music-title">Magical Fantasy</div>
+      <div class="music-status" id="music-status-text">音訊已靜音 / 暫停</div>
+    </div>
+    <div class="music-volume-container" onclick="stopPropagation(event)">
+      <i class="fa-solid fa-volume-low"></i>
+      <input type="range" min="0" max="1" step="0.01" value="0.3" oninput="changeVolume(this.value)">
+    </div>
+  </div>
+
+  <div class="map-modal" id="map-modal" onclick="closeMapModal(event)">
+    <div class="map-modal-panel" role="dialog" aria-modal="true" aria-labelledby="map-modal-name" onclick="event.stopPropagation()">
+      <div class="map-modal-photo"><img id="map-modal-img" src="https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2F%E5%9C%B0%E5%9C%96%2F%E5%9C%B0%E5%9C%96.jpg?alt=media&token=19c15693-7cb6-4d92-a556-cb4a8536c503" alt="地區介紹圖片" decoding="async" loading="lazy"></div>
+      <div class="map-modal-body">
+        <button class="map-modal-close" type="button" onclick="closeMapModal()" aria-label="關閉地區介紹"><i class="fa-solid fa-xmark"></i></button>
+        <h3 id="map-modal-name">地區名稱</h3>
+        <p id="map-modal-desc"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="monster-modal" id="monster-modal" onclick="closeMonsterModal(event)">
+    <div class="monster-modal-panel" role="dialog" aria-modal="true" aria-labelledby="monster-modal-name" onclick="event.stopPropagation()">
+      <div class="monster-modal-photo"><img id="monster-modal-img" src="https://firebasestorage.googleapis.com/v0/b/magic-academy-8374a.firebasestorage.app/o/%E5%85%89%E8%BC%9D%2Fplatinum-arcane-hero.png?alt=media" alt="魔物詳細圖片" decoding="async" loading="lazy"></div>
+      <div class="monster-modal-body">
+        <button class="monster-modal-close" type="button" onclick="closeMonsterModal()" aria-label="關閉魔物詳情"><i class="fa-solid fa-xmark"></i></button>
+        <h3 id="monster-modal-name">魔物名稱</h3>
+        <div class="monster-modal-grid">
+          <section>
+            <h4>出沒地區</h4>
+            <p id="monster-modal-area"></p>
+          </section>
+          <section>
+            <h4>特殊魔法</h4>
+            <p id="monster-modal-magic"></p>
+          </section>
+          <section>
+            <h4>注意事項</h4>
+            <p id="monster-modal-warning"></p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+   <footer>
+    <p
+      style="text-align:center; color:#888888; padding:12px 0; font-size:14px; font-family: 微軟正黑體, Arial, sans-serif; user-select: none;">
+      © 2025 Nokia。網頁製作版權所有，並保留一切權利。
+    </p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
