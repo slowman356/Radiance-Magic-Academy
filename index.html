@@ -63,7 +63,7 @@
       <div class="hero-content">
         <h1>光輝魔法學院</h1>
         <p>在白金聖城之中，魔法、契約與命運交織。選擇你的典籍，翻開屬於你的奇幻旅程。</p>
-        <a class="btn-magic" href="" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> 申請入學</a>
+        <a class="btn-magic" href="https://discord.gg/zNmG6DPNe" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> 申請入學</a>
       </div>
     </section>
   </div>
@@ -76,9 +76,9 @@
       </div>
       <div class="story-container">
         <div class="story-text">
-          <p>範例。</p>
-          <p>範例</p>
-          <p>範例。</p>
+          <p>由古老魔法維繫的浮光聖域。城中的學院、商會與執法者共同守護秩序，也彼此角力，讓每一次相遇都可能成為新的篇章。</p>
+          <p>玩家可以扮演學生、教師、冒險者、商人或隱藏身份的異族。角色行動會影響聲望、人際關係與後續劇情，所有故事都由互動推進。</p>
+          <p>這裡重視沉浸式 RP、角色動機與合理後果。魔法可以帶來奇蹟，也可能讓人付出代價。</p>
         </div>
       </div>
     </section>
@@ -594,7 +594,7 @@
     </div>
     <div class="music-volume-container" onclick="stopPropagation(event)">
       <i class="fa-solid fa-volume-low"></i>
-      <input id="volume-slider" type="range" min="0" max="100" value="15" oninput="changeVolume(this.value)" onclick="stopPropagation(event)">
+      <input type="range" min="0" max="1" step="0.01" value="0.3" oninput="changeVolume(this.value)">
     </div>
   </div>
 
@@ -632,85 +632,6 @@
       </div>
     </div>
   </div>
-   <footer>
-    <p
-      style="text-align:center; color:#888888; padding:12px 0; font-size:14px; font-family: 微軟正黑體, Arial, sans-serif; user-select: none;">
-      © 2026 Nokia。網頁製作版權所有，並保留一切權利。
-    </p>
-  </footer>
   <script src="script.js"></script>
-  <script src="script.js"></script>
-
-<script>
-  const bgmPlayer = document.getElementById("bgm-player");
-  const musicDisc = document.getElementById("music-disc");
-  const musicStatusText = document.getElementById("music-status-text");
-  const musicVinylIcon = document.getElementById("music-vinyl-icon");
-
-  function revealEnterAcademyButton() {
-    document.getElementById("academy-loader")?.classList.add("ready");
-  }
-
- function setMusicPlayingState(isPlaying) {
-  if (disc) disc.classList.toggle("playing", isPlaying);
-
-  if (statusText) {
-    statusText.textContent = isPlaying ? "音樂播放中" : "音訊已靜音 / 暫停";
-  }
-
-  if (vinylIcon) {
-    vinylIcon.className = isPlaying ? "fa-solid fa-compact-disc" : "fa-solid fa-record-vinyl";
-  }
-}
-
-  function enterAcademy() {
-    const loader = document.getElementById("academy-loader");
-    loader?.classList.add("leaving");
-    window.setTimeout(() => loader?.remove(), 700);
-
-    if (!bgmPlayer) return;
-
-    bgmPlayer.play().then(() => {
-      setMusicPlayingState(true);
-    }).catch(() => {
-      if (musicStatusText) musicStatusText.textContent = "請再次點擊音樂播放器開啟音樂";
-    });
-  }
-
-  function toggleMusic(event) {
-    event.stopPropagation();
-    if (!bgmPlayer) return;
-
-    if (bgmPlayer.paused) {
-      bgmPlayer.play().then(() => {
-        setMusicPlayingState(true);
-      }).catch(() => {
-        if (musicStatusText) musicStatusText.textContent = "請再次點擊音樂播放器開啟音樂";
-      });
-    } else {
-      bgmPlayer.pause();
-      setMusicPlayingState(false);
-    }
-  }
-
-  function changeVolume(value) {
-    if (!bgmPlayer) return;
-    bgmPlayer.volume = Math.min(Math.max(Number(value) / 100, 0), 1);
-  }
-
-  function stopPropagation(event) {
-    event.stopPropagation();
-  }
-
-  window.addEventListener("DOMContentLoaded", () => {
-    if (bgmPlayer) bgmPlayer.volume = 0.15;
-
-    const volumeSlider = document.getElementById("volume-slider");
-    if (volumeSlider) volumeSlider.value = 15;
-
-    revealEnterAcademyButton();
-    window.setTimeout(revealEnterAcademyButton, 300);
-  });
-</script>
 </body>
 </html>
