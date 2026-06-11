@@ -69,19 +69,36 @@
   </div>
 
   <div id="story-page" class="page-content">
-    <section class="worldview-section">
+    <section class="worldview-section story-book-section">
       <div class="section-header">
         <h2>世界故事</h2>
-        <p>白金高塔之下，所有角色都被命運與魔法召喚至同一座聖城。</p>
+        <p>尚未設定內容</p>
       </div>
-      <div class="story-container">
-        <div class="story-text">
-          <p>由古老魔法維繫的浮光聖域。城中的學院、商會與執法者共同守護秩序，也彼此角力，讓每一次相遇都可能成為新的篇章。</p>
-          <p>玩家可以扮演學生、教師、冒險者、商人或隱藏身份的異族。角色行動會影響聲望、人際關係與後續劇情，所有故事都由互動推進。</p>
-          <p>這裡重視沉浸式 RP、角色動機與合理後果。魔法可以帶來奇蹟，也可能讓人付出代價。</p>
+      <div class="story-container story-book" aria-label="世界故事魔法書">
+        <div class="story-cover-stage" aria-hidden="true">
+          <img class="story-cover-full" src="assets/story-book-cover.png" alt="">
+          <div class="story-cover-half story-cover-left"></div>
+          <div class="story-cover-half story-cover-right"></div>
         </div>
-      </div>
-    </section>
+        <div class="story-page story-page-left">
+          <div class="story-book-mark"></div>
+          <div class="story-sigil"><i class="fa-solid fa-wand-sparkles"></i></div>
+          <div class="story-book-title">大陸故事</div>
+        </div>
+        <div class="story-book-spine" aria-hidden="true"></div>
+        <div class="story-page story-page-right">
+          <div class="story-text" id="story-text">
+            <p class="story-line">尚未設定內容和LOGO。</p>
+            <p class="story-line"></p>
+            <p class="story-line"></p>
+            <p class="story-line"></p>
+            <p class="story-line"></p>
+            <p class="story-line"></p>
+            <p class="story-line"></p>
+            <p class="story-line"></p>
+          </div>
+        </div>
+      </div></section>
   </div>
 
   <div id="map-page" class="page-content">
@@ -154,6 +171,17 @@
         <div class="codex-subtitle" id="academy-subtitle"></div>
         <h2 class="codex-title" id="academy-title"></h2>
         <div class="codex-copy" id="academy-copy"></div>
+        <div class="academy-outfit-gallery" id="academy-outfits" aria-label="服裝圖片區">
+          <figure class="academy-outfit-slot">
+            <img id="academy-outfit-1" alt="學院服裝 男" decoding="async" loading="lazy">
+            <figcaption>服裝 男</figcaption>
+          </figure>
+          <figure class="academy-outfit-slot">
+            <img id="academy-outfit-2" alt="學院服裝 女" decoding="async" loading="lazy">
+            <figcaption>服裝 女</figcaption>
+          </figure>
+
+        </div>
         <div class="codex-footer" id="academy-footer"></div>
       </div>
       <aside class="codex-menu" aria-label="學院選單">
@@ -175,10 +203,10 @@
         <div class="codex-footer" id="course-footer"></div>
       </div>
       <aside class="codex-menu" aria-label="課程選單">
-        <button class="course-menu active" data-id="1" onclick="showCodex('course', 1)"><span>符文基礎</span><i class="dot"></i></button>
-        <button class="course-menu" data-id="2" onclick="showCodex('course', 2)"><span>結界防護</span><i class="dot"></i></button>
-        <button class="course-menu" data-id="3" onclick="showCodex('course', 3)"><span>元素實作</span><i class="dot"></i></button>
-        <button class="course-menu" data-id="4" onclick="showCodex('course', 4)"><span>魔物研究</span><i class="dot"></i></button>
+        <button class="course-menu active" data-id="1" onclick="showCodex('course', 1)"><span>天文學</span><i class="dot"></i></button>
+        <button class="course-menu" data-id="2" onclick="showCodex('course', 2)"><span>變形學</span><i class="dot"></i></button>
+        <button class="course-menu" data-id="3" onclick="showCodex('course', 3)"><span>魔藥學</span><i class="dot"></i></button>
+        <button class="course-menu" data-id="4" onclick="showCodex('course', 4)"><span>魔物研究(未設定)</span><i class="dot"></i></button>
       </aside>
     </section>
   </div>
@@ -193,10 +221,10 @@
         <div class="codex-footer" id="faculty-footer"></div>
       </div>
       <aside class="codex-menu" aria-label="師資選單">
-        <button class="faculty-menu active" data-id="1" onclick="showCodex('faculty', 1)"><span>院長</span><i class="dot"></i></button>
-        <button class="faculty-menu" data-id="2" onclick="showCodex('faculty', 2)"><span>老師1</span><i class="dot"></i></button>
-        <button class="faculty-menu" data-id="3" onclick="showCodex('faculty', 3)"><span>老師2</span><i class="dot"></i></button>
-        <button class="faculty-menu" data-id="4" onclick="showCodex('faculty', 4)"><span>老師3</span><i class="dot"></i></button>
+        <button class="faculty-menu active" data-id="1" onclick="showCodex('faculty', 1)"><span>老師1</span><i class="dot"></i></button>
+        <button class="faculty-menu" data-id="2" onclick="showCodex('faculty', 2)"><span>老師2</span><i class="dot"></i></button>
+        <button class="faculty-menu" data-id="3" onclick="showCodex('faculty', 3)"><span>老師3</span><i class="dot"></i></button>
+        <button class="faculty-menu" data-id="4" onclick="showCodex('faculty', 4)"><span>老師4</span><i class="dot"></i></button>
       </aside>
     </section>
   </div>
@@ -239,13 +267,19 @@
         </div>
         <div class="norm-tab-content" id="norm-tab-2">
           <div class="norms-kicker"></div>
-          <h3>魔法規章</h3>
+          <h3>二、魔法/戰鬥規則</h3>
           <div class="norm-rule-card">
             <strong>施法限制</strong>
-            <p>魔法需要符合角色設定、劇情條件與合理代價，避免破壞互動平衡。</p>
             <ul>
-              <li>高階魔法需符合角色設定與劇情條件。</li>
-              <li>禁止無代價、無限制、無反制的絕對能力。</li>
+              <li>高階魔法需符合角色設定與劇情條件</li>
+              <li>禁止無代價、無限制、無反制的絕對能力</li>
+              <li>魔法需要符合角色設定、劇情條件與合理代價，避免破壞互動平衡</li>
+            </ul>
+            <strong>互動戰鬥</strong>
+            <ul>
+              <li>戰鬥以互動敘事為主，避免單方面判定對方結果</li>
+              <li>衝突場景需保留對方反應空間</li>
+              <li>戰鬥以敘事互動為主，需保留對方反應與合理判定空間</li>
             </ul>
           </div>
         </div>
@@ -632,7 +666,6 @@
       </div>
     </div>
   </div>
-  <script src="script.js"></script>
   <script src="script.js"></script>
 
 <script>
